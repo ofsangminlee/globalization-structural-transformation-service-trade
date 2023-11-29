@@ -95,7 +95,7 @@ run_model:
 	@cd ./$(s_m) && $(runj) run_models.jl > run_models.out 2>&1
 
 	@echo "* Running 'clean_result.jl'"
-	@cd ./$(s_m) && $(runj) clean_results.jl > clean_results.out 2>&1
+	@cd ./$(s_m) && $(runj) clean_result.jl > clean_result.out 2>&1
 
 	@echo "* Running 'run_usa_row.jl'"
 	@cd ./$(s_m) && $(runj) run_usa_row.jl > run_usa_row.out 2>&1
