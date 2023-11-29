@@ -39,14 +39,13 @@ results in the paper:
 
 To clone the repository, at your desired location, type in the
 terminal:
-
 ```
 git clone https://github.com/ofsangminlee/globalization-structural-transformation-service-trade.git
 cd globalization-structural-transformation-service-trade
 git lfs pull
 ```
 
-It is important to run the second line, because ICIO data are
+It is important to run the second and third lines, because ICIO data are
 uploaded with Git Large File Storage. (Files for the ICIO data at the
 repository are pointers, not actual files.)
 
@@ -71,7 +70,7 @@ Pkg.instantiate()
 
 Now you can automatically generate all results by running Makefile
 using `GNU Make`. If you are using a Unix-based OS (e.g., Linux,
-macOS), in your terminal, run `make all`. This prompt will erase all
+macOS), in your terminal at the subfolder `src`, run `make all`. This prompt will erase all
 the results in the `output` and `doc` folders and regenerate them.
 
 For Windows users, you can either download `GNU Make for Windows` and
