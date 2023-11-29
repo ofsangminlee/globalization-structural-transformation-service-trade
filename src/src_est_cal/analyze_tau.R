@@ -283,7 +283,7 @@ plot.median.22 <- function(dat.plot)
         geom_point(aes(shape = origin.destination, color = origin.destination), size = 2)+
         geom_line(aes(linetype = origin.destination, color = origin.destination)) + 
         scale_color_brewer(palette = "Dark2") +
-        geom_dl(aes(label = origin.destination, color = origin.destination), method = list(dl.trans(x = x - 0.2), "first.bumpup", cex = 1)) +
+        geom_dl(aes(label = origin.destination, color = origin.destination), method = list(dl.trans(x = x - 0.2), "first.points", "bumpup", cex = 1)) +
         labs(y = "Median trade cost", x = "Year")
 
 pdf(file = "../../doc/figures/trade_cost_22_paper.pdf", width = 10, height = 6)
@@ -369,7 +369,7 @@ plot.ex.im <- function(dat.plot.tau, ex.country, list.inds, default.color.base, 
         scale_color_manual(name = "Sector", values = default.color.base) +
         scale_linetype_manual(name = "Type", values = default.linetype.base) +
         scale_shape_manual(name = "Sector", values = default.shape.base) +
-        geom_dl(aes(label = labs, color = ind), method = list(dl.trans(x = x - 0.2), "first.bumpup", cex = 1)) +
+        geom_dl(aes(label = labs, color = ind), method = list(dl.trans(x = x - 0.2), "first.points", "bumpup", cex = 1)) +
         xlab("Year") +
         ylab("Trade costs") +
         ggtitle(plot.title) +
@@ -382,7 +382,7 @@ plot.rel <- function(dat.plot.tau, ex.country, list.inds, default.color.base, de
         scale_color_manual(name = "Sector", values = default.color.base) +
         scale_linetype_manual(name = "Type", values = default.linetype.base) +
         scale_shape_manual(name = "Sector", values = default.shape.base) +
-        geom_dl(aes(label = ind, color = ind), method = list(dl.trans(x = x - 0.2), "first.bumpup", cex = 1)) +
+        geom_dl(aes(label = ind, color = ind), method = list(dl.trans(x = x - 0.2), "first.points", "bumpup", cex = 1)) +
         xlab("Year") +
         ylab("Log(export cost/import cost)") +
         ggtitle(plot.title) +

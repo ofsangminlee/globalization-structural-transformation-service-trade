@@ -37,23 +37,37 @@ results in the paper:
 
 ## Running the code
 
+To clone the repository, at your desired location, type in the
+terminal:
+
+```
+git clone
+https://github.com/ofsangminlee/globalization-structural-transformation-service-trade.git
+git lfs pull
+
+```
+
+It is important to run the second line, because ICIO data are
+uploaded with Git Large File Storage. (Files for the ICIO data at the
+repository are pointers, not actual files.)
+
 The code is in `R` and `Julia`. 
 
 For replication under the same version of open-source packages and
-dependencies in `R`
-and `Julia`, follow the steps below.
+dependencies in `R` and `Julia`, follow the steps below.
 
-Open an `R` prompt at the subfolder `src`. Then type:
+Open an `R` prompt at the subfolder `src` so that your working
+directory is `src`. Then type:
 ```
-> renv::load(".")
-> renv::restore()
+renv::load(".")
+renv::restore()
 ```
 
 Open a `Julia` prompt at the subfolder `src`. Then type:
 ```
-julia> using Pkg 
-julia> Pkg.activate(".")
-julia> Pkg.instantiate()
+using Pkg 
+Pkg.activate(".")
+Pkg.instantiate()
 ```
 
 Now you can automatically generate all results by running Makefile
@@ -65,4 +79,3 @@ For Windows users, you can either download `GNU Make for Windows` and
 follow the above steps. Alternatively, you can manually
 run the code files in the order outlined in `Makefile`. `Makefile` can
 be opened with text editors.
->>>>>>> 8c708be (Initial commit)
