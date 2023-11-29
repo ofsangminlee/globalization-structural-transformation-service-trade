@@ -1,0 +1,64 @@
+Industry,g_ps_cs
+Farms,g
+"Forestry, fishing, and related activities",g
+Oil and gas extraction,g
+"Mining, except oil and gas",g
+Support activities for mining,g
+Utilities,g
+Construction,cs
+Wood products,g
+Nonmetallic mineral products,g
+Primary metals,g
+Fabricated metal products,g
+Machinery,g
+Computer and electronic products,g
+"Electrical equipment, appliances, and components",g
+"Motor vehicles, bodies and trailers, and parts",g
+Other transportation equipment,g
+Furniture and related products,g
+Miscellaneous manufacturing,g
+Food and beverage and tobacco products,g
+Textile mills and textile product mills,g
+Apparel and leather and allied products,g
+Paper products,g
+Printing and related support activities,g
+Petroleum and coal products,g
+Chemical products,g
+Plastics and rubber products,g
+Wholesale trade,ps
+Retail trade,ps
+Air transportation,ps
+Rail transportation,ps
+Water transportation,ps
+Truck transportation,ps
+Transit and ground passenger transportation,ps
+Pipeline transportation,ps
+Other transportation and support activities,ps
+Warehousing and storage,ps
+"Publishing industries, except internet (includes software)",ps
+Motion picture and sound recording industries,ps
+Broadcasting and telecommunications,ps
+"Data processing, internet publishing, and other information services",ps
+"Federal Reserve banks, credit intermediation, and related activities",ps
+"Securities, commodity contracts, and investments",ps
+Insurance carriers and related activities,ps
+"Funds, trusts, and other financial vehicles",ps
+Real estate,cs
+Rental and leasing services and lessors of intangible assets,ps
+Legal services,ps
+Computer systems design and related services,ps
+"Miscellaneous professional, scientific, and technical services",ps
+Management of companies and enterprises,ps
+Administrative and support services,ps
+Waste management and remediation services,g
+Educational services,cs
+Ambulatory health care services,cs
+Hospitals and nursing and residential care facilities,cs
+Social assistance,cs
+"Performing arts, spectator sports, museums, and related activities",cs
+"Amusements, gambling, and recreation industries",cs
+Accommodation,cs
+Food services and drinking places,cs
+"Other services, except government",cs
+Federal,cs
+State and local,cs
