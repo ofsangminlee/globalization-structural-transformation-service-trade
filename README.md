@@ -41,10 +41,9 @@ To clone the repository, at your desired location, type in the
 terminal:
 
 ```
-git clone
-https://github.com/ofsangminlee/globalization-structural-transformation-service-trade.git
+git clone https://github.com/ofsangminlee/globalization-structural-transformation-service-trade.git
+cd globalization-structural-transformation-service-trade
 git lfs pull
-
 ```
 
 It is important to run the second line, because ICIO data are
