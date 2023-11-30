@@ -8,7 +8,8 @@ results in the paper:
 ## Structure
 
 - `data` contains data used for the paper. 
-	- `icio`: OECD Inter-Country Input-Output Database 2018 (`icio` data are uploaded with Git Large File Storage.)
+	- `icio`: OECD Inter-Country Input-Output Database 2018 (`icio`
+      data are uploaded with Google Drive.)
 	- `prices`: price data from OECD, UN, Groningen Growth and
       Development Centre, National Statistics of Republic of China
       (Taiwan)
@@ -37,31 +38,33 @@ results in the paper:
 
 ## Running the code
 
-To clone the repository, at your desired location, type in the
+Before running the code, there are four preliminary steps.
+
+1. Clone the repository: at your desired location, type in the
 terminal:
 ```
 git clone https://github.com/ofsangminlee/globalization-structural-transformation-service-trade.git
-cd globalization-structural-transformation-service-trade
-git lfs pull
 ```
 
-It is important to run the second and third lines, because ICIO data are
-uploaded with Git Large File Storage. (Files for the ICIO data at the
-repository are pointers, not actual files.)
+2. Download the five zip files for the ICIO data from the Google Drive
+folder
+(https://drive.google.com/drive/folders/19rNZ0YJHzuHPraVL66FagAETgP5-VB5r?usp=sharing)
+at the subfolder `data/icio`. The five zip files should be at the
+directory `data/icio`.
 
 The code is in `R` and `Julia`. 
 
 For replication under the same version of open-source packages and
 dependencies in `R` and `Julia`, follow the steps below.
 
-Open an `R` prompt at the subfolder `src` so that your working
+3. Open an `R` prompt at the subfolder `src` so that your working
 directory is `src`. Then type:
 ```
 renv::load(".")
 renv::restore()
 ```
 
-Open a `Julia` prompt at the subfolder `src`. Then type:
+4. Open a `Julia` prompt at the subfolder `src`. Then type:
 ```
 using Pkg 
 Pkg.activate(".")
