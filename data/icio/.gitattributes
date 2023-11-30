@@ -1,5 +1,0 @@
-ICIO_2010-2014.zip filter=lfs diff=lfs merge=lfs -text
-ICIO_2015-2018.zip filter=lfs diff=lfs merge=lfs -text
-ICIO_1995-1999.zip filter=lfs diff=lfs merge=lfs -text
-ICIO_2000-2004.zip filter=lfs diff=lfs merge=lfs -text
-ICIO_2005-2009.zip filter=lfs diff=lfs merge=lfs -text
