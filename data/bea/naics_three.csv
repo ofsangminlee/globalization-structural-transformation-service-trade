@@ -1,0 +1,64 @@
+Industry,g_hts_bts
+Farms,g
+"Forestry, fishing, and related activities",g
+Oil and gas extraction,g
+"Mining, except oil and gas",g
+Support activities for mining,g
+Utilities,g
+Construction,bts
+Wood products,g
+Nonmetallic mineral products,g
+Primary metals,g
+Fabricated metal products,g
+Machinery,g
+Computer and electronic products,g
+"Electrical equipment, appliances, and components",g
+"Motor vehicles, bodies and trailers, and parts",g
+Other transportation equipment,g
+Furniture and related products,g
+Miscellaneous manufacturing,g
+Food and beverage and tobacco products,g
+Textile mills and textile product mills,g
+Apparel and leather and allied products,g
+Paper products,g
+Printing and related support activities,g
+Petroleum and coal products,g
+Chemical products,g
+Plastics and rubber products,g
+Wholesale trade,hts
+Retail trade,hts
+Air transportation,hts
+Rail transportation,hts
+Water transportation,hts
+Truck transportation,hts
+Transit and ground passenger transportation,hts
+Pipeline transportation,hts
+Other transportation and support activities,hts
+Warehousing and storage,hts
+"Publishing industries, except internet (includes software)",hts
+Motion picture and sound recording industries,hts
+Broadcasting and telecommunications,hts
+"Data processing, internet publishing, and other information services",hts
+"Federal Reserve banks, credit intermediation, and related activities",hts
+"Securities, commodity contracts, and investments",hts
+Insurance carriers and related activities,hts
+"Funds, trusts, and other financial vehicles",hts
+Real estate,bts
+Rental and leasing services and lessors of intangible assets,hts
+Legal services,hts
+Computer systems design and related services,hts
+"Miscellaneous professional, scientific, and technical services",hts
+Management of companies and enterprises,hts
+Administrative and support services,hts
+Waste management and remediation services,g
+Educational services,bts
+Ambulatory health care services,bts
+Hospitals and nursing and residential care facilities,bts
+Social assistance,bts
+"Performing arts, spectator sports, museums, and related activities",hts
+"Amusements, gambling, and recreation industries",hts
+Accommodation,hts
+Food services and drinking places,hts
+"Other services, except government",bts
+Federal,bts
+State and local,bts
