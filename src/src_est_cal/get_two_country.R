@@ -200,6 +200,7 @@ ggplot(res.g, aes(x = year)) +
     plot.time.options(x.limits = c(1995, 2022), bw = FALSE)
 dev.off()
 
+write.csv(res.g, "../../doc/figures/specialization_usa_years.csv", row.names = FALSE)
 
 ################
 ## Get \phi's ##
