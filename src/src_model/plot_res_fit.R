@@ -399,8 +399,8 @@ head(res.18[order(-abs(res.18$abs.effect)), ], n = 12)
 head(res.18[order(-abs(res.18$index)), ], n = 12)
 
 ## Xlim Ylim for main plots
-x.lim.num <- 1.15
-y.lim.num <- 21
+x.lim.num <- 1.19 # 1.15 was before
+y.lim.num <- 21.5 # 21.2 was before.
 x.lim <- c(-x.lim.num, x.lim.num) # 1.1
 y.lim <- c(-y.lim.num, y.lim.num) # 20.5
 
@@ -417,7 +417,7 @@ plot.index.no.arrow <- function(res.18, x, i.color, x.lim, y.lim, paper = FALSE,
         scale_x_continuous(limits = x.lim, expand = c(0,0)) +
         scale_y_continuous(limits = y.lim, expand = c(0,0)) +
         xlab(x.lab) +
-        ylab("Effect (p.p.)") +
+        ylab(expression(Effect[i]^3 ~ "(p.p.)")) +
         themes +
         geom_vline(xintercept = 0, linetype = "dotted") +
         geom_hline(yintercept = 0, linetype = "dotted")
@@ -453,7 +453,7 @@ draw.arrows.beamer <- draw.arrows.four(bb.x.dist.mid, bb.x.dist.end, bb.y.loc, b
 
 ## Annotate arrows for x-axis
 annotate.arrow.x <- function(x.left, x.right, ffsize = 14)
-    list(annotation_custom(textGrob(TeX(r"($\Delta(\tau)$ \textbf{weakens} $CA^g$)"), x = x.right[1], y = x.right[2], hjust = 0, gp = gpar(fontsize = ffsize))), annotation_custom(textGrob(TeX(r"($\Delta(\tau)$ \textbf{strengthens} $CA^g$)"), x = x.left[1], y = x.left[2], hjust = 0, gp = gpar(fontsize = ffsize))))
+    list(annotation_custom(textGrob(TeX(r"($\Delta(\tau)$ \textbf{weakens} $CA_i^g$)"), x = x.right[1], y = x.right[2], hjust = 0, gp = gpar(fontsize = ffsize))), annotation_custom(textGrob(TeX(r"($\Delta(\tau)$ \textbf{strengthens} $CA_i^g$)"), x = x.left[1], y = x.left[2], hjust = 0, gp = gpar(fontsize = ffsize))))
 
 ## X arrow annotation location for beamer plots
 bb.xarrow.left <- c(0.15, -0.12)
@@ -525,7 +525,7 @@ pp.y.loc <- -0.115
 
 pp.y.dist.mid <- 0.2
 pp.y.dist.end <- 0.05
-pp.x.loc <- -0.06
+pp.x.loc <- -0.068 # -0.06
 
 ## X arrow annotation location for paper plots
 pp.xarrow.left <- c(0.15, -0.16)
@@ -736,6 +736,14 @@ sum.table.all$Sector <- c("G", "HTS", "BTS")
 sink(file = "../../doc/tables/summary_effect_all.tex")
 print(xtable(sum.table.all, digits = 1), include.rownames = FALSE, floating = FALSE)
 sink()
+
+sum.table.main.hs <- sum.table.all[, c(1:6, 11:14)]
+
+sink(file = "../../doc/tables/summary_effect_main_hs.tex")
+print(xtable(sum.table.main.hs, digits = 1), include.rownames = FALSE, floating = FALSE)
+sink()
+
+
 
 
 ## Plotting
@@ -1047,6 +1055,7 @@ pdf(file = "../../doc/figures/index_hts_abs_all_paper.pdf", width = 10, height =
 base.plot.hts(res.18.s)
 dev.off()
 
+
 ## Relationship with GDP.
 
 plot.index.gdp <- function(res.18, i.ind, i.color, x.lim, y.lim, paper = FALSE, outlier.countries = c("SAU", "BRN", "LUX")){
@@ -1147,6 +1156,67 @@ pdf(file = "../../doc/figures/gdp_hts_abs_all_paper.pdf", width = 10, height = 2
 base.plot.gs.gdp(res.18.s, g.s = "hts")
 dev.off()
 
+#### Version to draw for paper
+
+## Version to include in a paper
+plot.index.gdp.2 <- function(res.18, i.ind, i.color, x.lim, y.lim, paper = FALSE, outlier.countries = c("SAU", "BRN", "LUX"), effect.num){
+
+    ylab.inside <- bquote(Effect[i]^.(effect.num) ~ "(p.p.)")
+
+    themes <- list(theme(text = element_text(size = 15), plot.margin = unit(c(5.5, 6, 5.5, 5.5), "pt")))
+    
+    if (paper == TRUE){
+        themes <- append(list(theme_bw(), theme(plot.title = element_text(hjust = 0.5, size = 15))), themes)
+    }
+    
+    pp <- ggplot(data = subset(res.18, ind == i.ind & !(country %in% outlier.countries)), aes(x = log(gdppc), y = abs.effect)) +
+        geom_text(aes(label = country), color = i.color) +
+        coord_cartesian(xlim = x.lim, ylim = y.lim, clip = "off") +
+        scale_x_continuous(limits = x.lim, expand = c(0,0)) +
+        scale_y_continuous(limits = y.lim, expand = c(0,0)) +
+        geom_smooth(method = "lm", alpha=0.3, linewidth = 0.5, color = i.color, fullrange = TRUE) +
+        ylab(ylab.inside) +
+        xlab(NULL) +
+        themes +
+        geom_hline(yintercept = 0, linetype = "dotted")
+    
+    return(pp)
+}
+
+x.lim.gdp.2 <- c(5.6, 12.0)
+y.lim.gdp.2 <- 41*c(-1,1)
+
+
+base.plot.gdp.2 <- function(res.18, num.effect.i, out.title){
+
+    # Create individual plots with titles
+    p1 <- plot.index.gdp.2(res.18, "G", "black", x.lim.gdp.2, y.lim.gdp.2, paper = TRUE, outlier.countries = exception.gdp, num.effect.i) + ggtitle("(i) Goods")
+    p2 <- plot.index.gdp.2(res.18, "HTS", "red", x.lim.gdp.2, y.lim.gdp.2, paper = TRUE, outlier.countries = exception.gdp, num.effect.i) + ggtitle("(ii) HTS")
+    p3 <- plot.index.gdp.2(res.18, "BTS", "blue", x.lim.gdp.2, y.lim.gdp.2, paper = TRUE, outlier.countries = exception.gdp, num.effect.i) + ggtitle("(iii) BTS")
+    
+    return(plot_grid(p1, p2, p3, ncol = 1))
+}
+
+# Run the function with your inputs
+pg1 <- base.plot.gdp.2(res.18.g, 1)
+pg2 <- base.plot.gdp.2(res.18.s, 2)
+pg3 <- base.plot.gdp.2(res.18, 3)
+
+pg4 <- plot_grid(pg1,pg2,pg3, nrow = 1)
+
+## Add individual titles for pg1, pg2, and pg3
+x.title.adj <- 0.031
+
+final_plot <- ggdraw() +
+    draw_label("(a) Effect 1: G", x = 0.17 + x.title.adj, y = 1, vjust = 1.5, size = 16) +
+    draw_label("(b) Effect 2: S", x = 0.5 + x.title.adj, y = 1, vjust = 1.5, size = 16) +
+    draw_label("(c) Effect 3: G & S ", x = 0.83 + x.title.adj, y = 1, vjust = 1.5, size = 16) +
+    draw_plot(pg4, 0, 0.04, 0.99, 0.92) +  
+    draw_label("Log(GDP per capita in 1995)", x = 0.531, y = 0, vjust = -2, size = 14)
+
+pdf(file = "../../doc/figures/gdp_effect_paper.pdf", width = 10, height = 13)
+final_plot
+dev.off()
 
 ###############
 ## Model fit ##
